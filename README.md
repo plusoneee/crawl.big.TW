@@ -24,7 +24,7 @@ cd bigTW
 ```
 scrapy crawl travel
 ```
-* If you want to a `.csv` output file:
+* If you want a `.csv` output file:
 ```
 scrapy crawl travel -o output.csv
 ```
