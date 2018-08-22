@@ -1,8 +1,7 @@
 # crawl.big.TW
 
 ### Configure Setting : 
-Edit the file `bigTW/.env.example`, and save as `.env`
-or You can :
+Edit the file `bigTW/.env.example`, and save as `.env`.
 ```
 cp .env.example .env
 vim .env
