@@ -24,7 +24,7 @@ def process_item(self, item, spider):
 ```
 
 ### How to RUN :
-* Move to project
+* Move into the project
 ```
 cd bigTW
 ```
