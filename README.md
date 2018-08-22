@@ -1,17 +1,19 @@
 # crawl.big.TW
 
-#### Configure Setting : 
+### Configure Setting : 
 Edit the file `bigTW/.env.example`, and save as `.env`.
 ```
-vim bigTW/.env.example
+cp .env.example .env
+vim .env
 ```
-#### Python3 Requrement :
+
+### Python3 Requrement :
 ```
 scrapy
 pymysql
 python-dovenv
 ```
---- 
+
 ### How to RUN :
 * Move to project
 ```
