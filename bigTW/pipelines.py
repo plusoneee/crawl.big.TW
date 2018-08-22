@@ -10,6 +10,7 @@ class BigtwPipeline(object):
     def process_item(self, item, spider):
         return item
 class MySqlPipeline(object):
+    old_data_from_sql = []
     def open_spider(self, spider):
         db = spider.settings.get('MYSQL_DB_NAME')
         host = spider.settings.get('MYSQL_DB_HOST')
@@ -23,14 +24,22 @@ class MySqlPipeline(object):
             db = db,
             cursorclass= pymysql.cursors.DictCursor
         )
+
+        with self.connection.cursor() as cursor:
+            sql = "SELECT * FROM newsAll"
+            cursor.execute(sql)
+            for row in cursor:
+                self.old_data_from_sql.append(row['title'])
+
     def close_spider(self, spider):
         # self.connection.commit()
         self.connection.close()
     
     def process_item(self, item, spider):
-        self.insert_to_mysql(item)
+        if item['title'] not in self.old_data_from_sql:
+            self.insert_to_mysql(item)
         return item
-        
+
     def insert_to_mysql(self, item):
         values = (
             item['title'],
@@ -40,7 +49,7 @@ class MySqlPipeline(object):
             item['postTime'],
         )
         with self.connection.cursor() as cursor:
-            sql = 'INSERT INTO `news` (`title`, `content`, `category`, `imgUrl`, `postTime`) VALUES (%s, %s, %s, %s, %s)'
+            sql = 'INSERT INTO `newsAll` (`title`, `content`, `category`, `imgUrl`, `postTime`) VALUES (%s, %s, %s, %s, %s)'
             cursor.execute(sql,(
                 item['title'],
                 item['content'],
@@ -49,4 +58,5 @@ class MySqlPipeline(object):
                 item['postTime'],)
             )
             self.connection.commit()
+            print('Data Aready Insert to DB')
             
