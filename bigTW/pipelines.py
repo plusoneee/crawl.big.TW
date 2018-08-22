@@ -4,7 +4,10 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
 import pymysql
+import sys
+from scrapy import crawler
 
 class BigtwPipeline(object):
     def process_item(self, item, spider):
@@ -12,7 +15,6 @@ class BigtwPipeline(object):
 class MySqlPipeline(object):
     old_data_from_sql = []
     def open_spider(self, spider):
-
         # Database Settings
         db = spider.settings.get('MYSQL_DB_NAME')
         host = spider.settings.get('MYSQL_DB_HOST')
@@ -27,7 +29,6 @@ class MySqlPipeline(object):
             db = db,
             cursorclass= pymysql.cursors.DictCursor
         )
-        
     def close_spider(self, spider):
         self.connection.close()
     
@@ -56,13 +57,7 @@ class MySqlPipeline(object):
         )
         with self.connection.cursor() as cursor:
             sql = 'INSERT INTO `newsAll` (`title`, `content`, `category`, `imgUrl`, `postTime`) VALUES (%s, %s, %s, %s, %s)'
-            cursor.execute(sql,(
-                item['title'],
-                item['content'],
-                item['category'],
-                item['imgUrl'],
-                item['postTime'],)
-            )
+            cursor.execute(sql, values)
             self.connection.commit()
             print('Data Aready Insert to DB')
             
