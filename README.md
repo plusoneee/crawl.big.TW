@@ -18,8 +18,8 @@ python-dovenv
 
 ```python
 def process_item(self, item, spider):
-        # self.filter_repeat_data(item)
-        return item
+    # self.filter_repeat_data(item)
+    return item
 ```
 
 ### How to RUN :
