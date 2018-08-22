@@ -1,17 +1,20 @@
 # crawl.big.TW
 
-#### Configure Setting : 
-Edit the file `bigTW/.env.example`, and save as `.env`.
+### Configure Setting : 
+Edit the file `bigTW/.env.example`, and save as `.env`
+or You can :
 ```
-vim bigTW/.env.example
+cp .env.example .env
+vim .env
 ```
-#### Python3 Requrement :
+
+### Python3 Requrement :
 ```
 scrapy
 pymysql
 python-dovenv
 ```
---- 
+
 ### How to RUN :
 * Move to project
 ```
@@ -21,7 +24,7 @@ cd bigTW
 ```
 scrapy crawl travel
 ```
-* If you want to a `.csv` output file:
+* If you want a `.csv` output file:
 ```
 scrapy crawl travel -o output.csv
 ```
