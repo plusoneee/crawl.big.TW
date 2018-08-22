@@ -2,6 +2,7 @@
 
 ### Configure Setting : 
 Edit the file `bigTW/.env.example`, and save as `.env`.
+or You can copy `.env.example` name as `.env`:
 ```
 cp .env.example .env
 vim .env
