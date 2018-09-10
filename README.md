@@ -11,7 +11,20 @@ vim .env
 ```
 scrapy
 pymysql
-python-dovenv
+python-dotenv
+```
+
+### Create MySQL Table :
+```
+create table newsAll (
+    idx int AUTO_INCREMENT, 
+    title varchar(255),
+    content text,
+    category varchar(255),
+    imgUrl varchar(255),
+    postTime varchar(255), 
+    primary key(idx)
+)
 ```
 
 * If you don't want to filter duplicate data from SQL, just comments out [this line](https://github.com/plusoneee/crawl.big.TW/blob/master/bigTW/pipelines.py#L35). like :
