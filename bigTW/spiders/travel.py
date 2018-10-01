@@ -38,4 +38,4 @@ class TravelSpider(scrapy.Spider):
         return article
     
     def kind_switch(self, argument):
-        return {'旅遊':0, '美食':1, '休閒生活':2, '藝文':3}[argument]
+        return {'旅遊':0, '美食':1, '休閒':2, '藝文':3}[argument]

@@ -16,14 +16,14 @@ python-dotenv
 
 ### Create MySQL Table :
 ```
-create table newsAll (
-    idx int AUTO_INCREMENT, 
-    title varchar(255),
+create table news (
+    id int AUTO_INCREMENT, 
+    kind text,
+    title text,
     content text,
-    category varchar(255),
-    imgUrl varchar(255),
-    postTime varchar(255), 
-    primary key(idx)
+    img text,
+    time text, 
+    primary key(id)
 )
 ```
 

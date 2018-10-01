@@ -39,7 +39,7 @@ class MySqlPipeline(object):
     def filter_repeat_data(self, item):
         # Getting Old Data from DB
         with self.connection.cursor() as cursor:
-            sql = "SELECT * FROM newsAll"
+            sql = "SELECT * FROM news"
             cursor.execute(sql)
             for row in cursor:
                 self.old_data_from_sql.append(row['title'])
@@ -56,7 +56,7 @@ class MySqlPipeline(object):
             item['time'],
         )
         with self.connection.cursor() as cursor:
-            sql = 'INSERT INTO `newsAll` (`kind`, `title`, `content`, `img`, `time`) VALUES (%s, %s, %s, %s, %s)'
+            sql = 'INSERT INTO `news` (`kind`, `title`, `content`, `img`, `time`) VALUES (%s, %s, %s, %s, %s)'
             cursor.execute(sql, values)
             self.connection.commit()
             print('Data Aready Insert to DB')
