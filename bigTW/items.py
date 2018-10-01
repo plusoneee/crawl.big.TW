@@ -11,10 +11,10 @@ import scrapy
 '''
 class BigtwItem(scrapy.Item):
     # name = scrapy.Field()
-    idx = scrapy.Field()
+    id = scrapy.Field()
+    kind = scrapy.Field()
     title = scrapy.Field()
     content = scrapy.Field()
-    category = scrapy.Field()
-    imgUrl = scrapy.Field()
-    postTime = scrapy.Field()
+    img = scrapy.Field()
+    time = scrapy.Field()
     

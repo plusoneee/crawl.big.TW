@@ -81,7 +81,7 @@ ITEM_PIPELINES = {
    'bigTW.pipelines.BigtwPipeline': 300,
    'bigTW.pipelines.MySqlPipeline':401,
 }
-FEED_EXPORT_FIELDS = ['index','category','title','content','imgUrl','postTime']
+FEED_EXPORT_FIELDS = ['index','kind','title','content','img','time']
 USER_AGENT = random.choice(['Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'])
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

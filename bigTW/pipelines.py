@@ -49,14 +49,14 @@ class MySqlPipeline(object):
 
     def insert_to_mysql(self, item):
         values = (
+            item['kind'],
             item['title'],
             item['content'],
-            item['category'],
-            item['imgUrl'],
-            item['postTime'],
+            item['img'],
+            item['time'],
         )
         with self.connection.cursor() as cursor:
-            sql = 'INSERT INTO `newsAll` (`title`, `content`, `category`, `imgUrl`, `postTime`) VALUES (%s, %s, %s, %s, %s)'
+            sql = 'INSERT INTO `newsAll` (`kind`, `title`, `content`, `img`, `time`) VALUES (%s, %s, %s, %s, %s)'
             cursor.execute(sql, values)
             self.connection.commit()
             print('Data Aready Insert to DB')

@@ -7,7 +7,7 @@ cp .env.example .env
 vim .env
 ```
 
-### Python3 Requrement :
+### Python3 Requirement :
 ```
 scrapy
 pymysql
