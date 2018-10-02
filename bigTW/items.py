@@ -7,14 +7,14 @@
 
 import scrapy
 '''
-文章標題、文章分類、文章內容、圖片連結、發文時間
+文章分類、文章標題、文章內容、圖片連結、發文時間
 '''
 class BigtwItem(scrapy.Item):
     # name = scrapy.Field()
-    idx = scrapy.Field()
+    id = scrapy.Field()
+    kind = scrapy.Field()
     title = scrapy.Field()
     content = scrapy.Field()
-    category = scrapy.Field()
-    imgUrl = scrapy.Field()
-    postTime = scrapy.Field()
+    img = scrapy.Field()
+    time = scrapy.Field()
     

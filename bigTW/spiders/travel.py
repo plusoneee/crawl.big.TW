@@ -29,9 +29,13 @@ class TravelSpider(scrapy.Spider):
         article = BigtwItem()
         sel = response.css('div.entry')
         article['title'] = sel.css('h1.entry-title::text').extract_first()
-        article['postTime'] = sel.css('span.entry-date::text').extract_first()
-        article['category'] = sel.css('span.entry-category a::text').extract_first()
-        article['imgUrl'] = sel.xpath('//img/@src').extract_first()
+        article['time'] = sel.css('span.entry-date::text').extract_first()
+        kind = sel.css('span.entry-category a::text').extract_first()
+        article['kind'] = self.kind_switch(kind) 
+        article['img'] = sel.xpath('//img/@src').extract_first()
         content = sel.css('div.entry-content p::text').extract()[1:]
         article['content'] = ','.join(content)
         return article
+    
+    def kind_switch(self, argument):
+        return {'旅遊':0, '美食':1, '休閒':2, '藝文':3}[argument]
