@@ -1,32 +1,20 @@
-# crawl.big.TW
+## Intro
 
-### Configure Setting : 
-Edit the file `bigTW/.env.example`, and save as `.env`.
-```
-cp .env.example .env
-vim .env
-```
+BigTW is a Intelligent Mobile Application community of National Taichung University of Science and Technology imac project. mainly about calculate attractions from travel news.
 
-### Python3 Requirement :
-```
-scrapy
-pymysql
-python-dotenv
-```
+## Dependencies
 
-### Create MySQL Table :
-```
-create table news (
-    id int AUTO_INCREMENT, 
-    kind text,
-    title text,
-    content text,
-    img text,
-    time text, 
-    primary key(id)
-)
-```
+Python3, Hadoop2.7.3, Spark2.0, MySQL5.7
 
+<<<<<<< HEAD
+#### Getting started
+
+1. You need to crawl the news, use [crawl]
+2. Let [spark] assist to wordcount
+
+[crawl]:<./crawl>
+[spark]:<./analysis>
+=======
 ### How to RUN :
 * Move into the project
 ```
@@ -40,3 +28,4 @@ scrapy crawl travel
 ```
 scrapy crawl travel -o output.csv
 ```
+>>>>>>> 63634cf698e61477bafbc6d91a1462ba55acabe0
