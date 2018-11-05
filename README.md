@@ -14,7 +14,7 @@ Python3, Hadoop2.7.3, Spark2.0, MySQL5.7
 
 [crawl]:<./crawl>
 [spark]:<./analysis>
-=======
+
 ### How to RUN :
 * Move into the project
 ```
